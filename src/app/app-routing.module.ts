@@ -5,6 +5,7 @@ import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
+  { path: 'dashboard', loadChildren:'./admin/dashboard/dashboard.module#DashboardModule' },
   { path: 'signup', component: SignupComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];

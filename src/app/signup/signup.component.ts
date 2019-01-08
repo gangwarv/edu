@@ -1,17 +1,22 @@
-import { Component, OnInit } from '@angular/core';
-// import { Location } from '@angular/common';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { AuthService } from '../core/auth/auth.service';
+import { Subscription } from 'rxjs';
 
 @Component({
     selector: 'app-signup',
     templateUrl: './signup.component.html',
     styleUrls: ['./signup.component.scss']
 })
-export class SignupComponent implements OnInit {
+export class SignupComponent {
     test: Date = new Date();
+    email: string;
+    password: string;
 
-    constructor() {console.log(window.location.href.endsWith('signup'), 'cons') }
+    constructor(private auth: AuthService) {
 
-    ngOnInit() {
-        // console.log(window.location.href.endsWith('signup'))
+    }
+
+    signIn() {
+        this.auth.signInWithEmailAndPassword(this.email, this.password)
     }
 }

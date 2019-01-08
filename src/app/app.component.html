@@ -1,5 +1,5 @@
 
-<app-navbar *ngIf="displayHeadAndFooter"></app-navbar>
+<app-navbar [userName]="(auth.User | async)?.email" *ngIf="displayHeadAndFooter"></app-navbar>
 <div [ngClass]="displayHeadAndFooter ? 'container wrapper':''">
 <router-outlet></router-outlet>
 </div>

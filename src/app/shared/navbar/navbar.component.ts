@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef } from '@angular/core';
+import { Component, OnInit, ElementRef, Input } from '@angular/core';
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { AuthService } from 'src/app/core/auth/auth.service';
 
@@ -8,10 +8,13 @@ import { AuthService } from 'src/app/core/auth/auth.service';
     styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
+    @Input()
+    userName: string;
+
     private toggleButton: any;
     private sidebarVisible: boolean;
 
-    constructor(public location: Location, private element: ElementRef, public auth: AuthService) {
+    constructor(public location: Location, private element: ElementRef, private auth: AuthService) {
         this.sidebarVisible = false;
     }
 
@@ -22,10 +25,10 @@ export class NavbarComponent implements OnInit {
         window.addEventListener('click', (e: any) => {
             // let isout = e.target != document.getElementsByClassName('navbar-toggler')[0];
             let isClose = !this.isDescendant(document.getElementsByClassName('navbar-translate')[0], e.target)
-            && (!this.isDescendant(document.getElementById('navbarToggler'), e.target)
-            || e.target.classList.contains('dropdown-item') 
-            || (e.target.classList.contains('nav-link') && !e.target.hasAttribute('ngbDropdownToggle'))
-            );
+                && (!this.isDescendant(document.getElementById('navbarToggler'), e.target)
+                    || e.target.classList.contains('dropdown-item')
+                    || (e.target.classList.contains('nav-link') && !e.target.hasAttribute('ngbDropdownToggle'))
+                );
 
             if (isClose) {
                 this.sidebarClose();
@@ -35,7 +38,7 @@ export class NavbarComponent implements OnInit {
     sidebarOpen() {
         const toggleButton = this.toggleButton;
         const html = document.getElementsByTagName('html')[0];
-        
+
         setTimeout(function () {
             toggleButton.classList.add('toggled');
         }, 500);
@@ -60,6 +63,9 @@ export class NavbarComponent implements OnInit {
         }
     };
 
+    signOut() {
+        this.auth.signOut()
+    }
     // helper
     isDescendant(parent, child) {
         var node = child.parentNode;
@@ -70,5 +76,5 @@ export class NavbarComponent implements OnInit {
             node = node.parentNode;
         }
         return false;
-   }
+    }
 }

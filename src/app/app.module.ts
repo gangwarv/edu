@@ -9,6 +9,10 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { SignupComponent } from './signup/signup.component';
 import { HomeComponent } from './home/home.component';
 import { CoreModule } from './core/core.module';
+import { FormsModule } from '@angular/forms';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireModule } from '@angular/fire';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [
@@ -20,8 +24,11 @@ import { CoreModule } from './core/core.module';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
     CoreModule,
+    AngularFireAuthModule,
+    AngularFireModule.initializeApp(environment.firebase),
     NgbModule.forRoot()
   ],
   providers: [],

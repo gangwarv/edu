@@ -18,11 +18,11 @@
                             </div>
                             <form class="register-form">
                                 <label>Email</label>
-                                <input type="text" class="form-control" placeholder="Email">
+                                <input type="text" class="form-control" name="Email" placeholder="Email" [(ngModel)]="email">
 
                                 <label>Password</label>
-                                <input type="password" class="form-control" placeholder="Password">
-                                <button routerLink="/home"  class="btn btn-danger btn-block btn-round">Register</button>
+                                <input type="password" class="form-control" name="Password" placeholder="Password" [(ngModel)]="password">
+                                <button (click)="signIn()" class="btn btn-danger btn-block btn-round">Login</button>
                             </form>
                             <div class="forgot">
                                 <a href="#" class="btn btn-link btn-danger">Forgot password?</a>

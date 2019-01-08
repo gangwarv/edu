@@ -14,7 +14,7 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.router.events.subscribe((event: Event) => {
       if (event instanceof NavigationEnd) {
-        this.displayHeadAndFooter = !event.url.endsWith('signup') || !event.url.endsWith('signin');
+        this.displayHeadAndFooter = !(event.url.endsWith('signup') || event.url.endsWith('signin'));
       }
     });
   }

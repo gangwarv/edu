@@ -3,12 +3,12 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-// import { NgBootstrapModule } from './ng-bootstrap/ng-bootstrap.module';
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { SignupComponent } from './signup/signup.component';
 import { HomeComponent } from './home/home.component';
+import { CoreModule } from './core/core.module';
 
 @NgModule({
   declarations: [
@@ -21,6 +21,7 @@ import { HomeComponent } from './home/home.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    CoreModule,
     NgbModule.forRoot()
   ],
   providers: [],

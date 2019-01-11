@@ -6,10 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-
+numbers = []
   constructor() { }
 
   ngOnInit() {
+	  for(let i=1; i<300; i++){
+		  this.numbers.push(i);
+	  }
   }
 
 }

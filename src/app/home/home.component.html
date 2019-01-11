@@ -1,12 +1,8 @@
 <div class="row">
-                    <div class="col">
-                      1 of 3
-                    </div>
-                    <div class="col-6">
-                      2 of 3 (wider)
-                    </div>
-                    <div class="col">
-                      3 of 3
-                    </div>
-                  </div>
-        <button class="btn btn-danger">Default</button>
+	<table class="table">
+		<tr *ngFor="let n of numbers">
+			<td>{{ n }}</td>
+			<td> Hello</td>
+		</tr>
+	</table>
+<button class="btn btn-danger">Default</button>

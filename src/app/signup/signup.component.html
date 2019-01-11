@@ -16,10 +16,12 @@
                                     <i class="fa fa-twitter"></i>
                                 </a>
                             </div>
+							<div class="alert alert-danger">
+								<strong>Failed!</strong> Indicates a dangerous or potentially negative action.
+							</div>
                             <form class="register-form">
                                 <label>Email</label>
                                 <input type="text" class="form-control" name="Email" placeholder="Email" [(ngModel)]="email">
-
                                 <label>Password</label>
                                 <input type="password" class="form-control" name="Password" placeholder="Password" [(ngModel)]="password">
                                 <button (click)="signIn()" class="btn btn-danger btn-block btn-round">Login</button>
